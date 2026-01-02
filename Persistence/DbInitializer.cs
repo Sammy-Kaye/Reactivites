@@ -1,12 +1,11 @@
 using System;
-using System.Drawing;
 using Domain;
 
 namespace Persistence;
 
 public class DbInitializer
 {
-public static async Task SeedData(AppDbContext context)
+    public static async Task SeedData(AppDbContext context)
     {
         if (context.Activities.Any()) return;
 
@@ -119,7 +118,9 @@ public static async Task SeedData(AppDbContext context)
                 Longitude = -0.781404
             }
         };
-        context.Activities.AddRangeAsync(activities);
+
+        context.Activities.AddRange(activities);
+
         await context.SaveChangesAsync();
     }
 }
